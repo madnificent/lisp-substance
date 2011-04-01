@@ -348,7 +348,7 @@
 
 (define log
   (lambda (text)
-    (http 'post (strcat deviceurl "/log") text)
+    (http 'post (strcat deviceurl "/log") (strcat text "\n"))
     (receive
      ((response code)
       (cond

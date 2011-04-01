@@ -131,11 +131,12 @@ nil
 ;; cell only contains one element.  Arrays contain an indexed sequence
 ;; of objects.
 
-(let ((c (cellnew "a ")))
+(let ((c (cellnew "a")))
   (log (cellget c))
-  (cellput c "b\n")
+  (cellput c "b")
   (log (cellget c)))
-; a b
+; a
+; b
 ; => nil
 
 ;; Note that the "log" function is used to write strings to the
@@ -146,7 +147,7 @@ nil
   (arrayput a 0 "0")
   (dotimes (i 4)
     (when (arrayget a i)
-      (log (strcat (arrayget a i) "\n")))))
+      (log (strcat (arrayget a i))))))
 ; 0
 ; 2
 ; => nil
@@ -197,7 +198,9 @@ letrec and "named let"
      (when (> i 0)
        (log (write i))
        (counting (- i 1))))
-; 321
+; 3
+; 2
+; 1
 ; => nil
 
 ;;; Concurrent Control
@@ -264,11 +267,11 @@ letrec and "named let"
   (lambda (name proc)
     (receive
      ((odd n)
-      (log (strcat name " sees " (write n) "\n"))
+      (log (strcat name " sees " (write n)))
       (send proc (even (- n 1)))
       (countdown name proc))
      ((even n)
-      (log (strcat name " sees " (write n) "\n"))
+      (log (strcat name " sees " (write n)))
       (when (!= n 0)
 	(send proc (odd (- n 1)))
 	(countdown name proc))))))
@@ -315,14 +318,13 @@ Alice sees 0
    (trapexits)
    (spawnlink
     (lambda ()
-      (log "i'm not dead yet\n")
-      (log "i think i'm getting better\n")
+      (log "i'm not dead yet")
+      (log "i think i'm getting better")
       (throw "i'm dead buddy")))
    (receive
     ((exit snap reason)
-     (log "noticed an exit with reason: ")
-     (log (write reason))
-     (log "\n")))))
+     (log (strcat "noticed an exit with reason: "
+		  (write reason)))))))
 
 ;; The other rule about linked processes is that if a process dies
 ;; abnormally, then non-system processes linked to it will also die.

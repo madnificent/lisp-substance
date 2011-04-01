@@ -21,10 +21,10 @@
 	   (spawnlink
 	    (lambda ()
 	      (dolist (exp (map eval (readall text)))
-		(log (strcat (write exp) "\n"))))))
+		(log (strcat (write exp)))))))
 	  ((exit snap reason)
 	   (unless (= reason 'normal)
-	     (log (strcat "eval process died: " (write reason) "\n")))))
+	     (log (strcat "eval process died: " (write reason))))))
 	 (loop))))
 
 (define startrepl
