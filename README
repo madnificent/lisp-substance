@@ -6,12 +6,16 @@ with the emulated Palm device from emacs.
 
 Install
 
-You must have the Go language tools installed.  See http://golang.org.
-
-In the project directory, run ./refresh.bash.
-
 You need to edit the src/config.bash file for your environment.  Refer
 to src/config.bash.sample.
+
+$ cp src/config.bash.sample src/config.bash
+$ emacs src/config.bash
+
+You must have the Go language tools installed.  See http://golang.org.
+Now build the tools that are written in Go:
+
+$ ./refresh.bash
 
 Running
 
