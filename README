@@ -23,4 +23,7 @@ for emacs to run in.  In the interaction server terminal, run
 Now open src/boot.lisp.  Place the cursor on an expression and press
 C-c C-e.  The expression should be evaluated and you should see some
 output appear in the interaction server's terminal.  You can use C-c
-C-x to evaluate the expression before point.
+C-x to evaluate the expression before point.  You can also evaluate
+code from the command line using bin/lispin.  Try this:
+
+$ echo '(+ 36 64)' | bin/lispin
