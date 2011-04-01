@@ -1,0 +1,26 @@
+Introduction
+
+This project includes the lisp source code for the lisp-addict
+project.  It also includes the development tools for communicating
+with the emulated Palm device from emacs.
+
+Install
+
+You must have the Go language tools installed.  See http://golang.org.
+
+In the project directory, run ./refresh.bash.
+
+You need to edit the src/config.bash file for your environment.  Refer
+to src/config.bash.sample.
+
+Running
+
+Make sure the emulator is running.  The code assumes we can connect to
+it at 192.168.2.1.  You will want one terminal to run the interaction
+server in.  And you will want to have a separate terminal or window
+for emacs to run in.  In the interaction server terminal, run
+./connect.bash.  In your emacs session, load src/lisp-substance.el.
+Now open src/boot.lisp.  Place the cursor on an expression and press
+C-c C-e.  The expression should be evaluated and you should see some
+output appear in the interaction server's terminal.  You can use C-c
+C-x to evaluate the expression before point.
