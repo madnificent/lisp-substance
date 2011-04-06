@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-const url = "http://192.168.2.1:9000/eval"
+const url = "http://127.0.0.1:9000/eval"
 
 func main() {
 	response, err := http.Post(url, "text/plain", os.Stdin)

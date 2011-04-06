@@ -298,7 +298,7 @@
 
 ;;; startup
 
-(define deviceurl "http://192.168.2.1:9000")
+(define deviceurl "http://0.0.0.0:9000") ; listen to an inexisting address by default
 
 (define makeimage
   (lambda fasls

@@ -1,5 +1,5 @@
-SUBSTANCE_ROOT=~/Unix/lisp-substance
-ADDICT_DIR=~/Unix/lisp-addict
-ADDICT=org.norstrulde.lisp-addict
-ADDICT_IPK=${ADDICT}_0.0.1_all.ipk
-ADDICT_IP_ADDR=192.168.2.1:9000
+SUBSTANCE_ROOT=/path/to/lisp-substance # Needed
+ADDICT_DIR=/path/to/lisp-addict # Need if you want to dump new images
+ADDICT=com.knowified.toys.lisp-addict # name of the app, needed for autolaunch upon dump of new image
+ADDICT_IPK=${ADDICT}_1.0.0_all.ipk # needed for autolaunch upon dump of new image
+ADDICT_IP_ADDR=:9000 # Address to connect/host to.  This is replicated in lispin.go . Probably doesn't need editing.
